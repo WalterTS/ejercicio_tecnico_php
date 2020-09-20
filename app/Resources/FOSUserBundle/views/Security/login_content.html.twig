@@ -1,0 +1,30 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="container-fluid">
+			<div class="container mt-5">
+				<div class="col-md-12">
+					<h2 class="text-center my-2">Demo: Polygon</h2>
+				</div>
+				<form action="{{ path("fos_user_security_check") }}" method="post">
+          {% if csrf_token %}
+              <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+          {% endif %}
+				  <div class="form-group text-left">
+				    <label for="usr">Usuario</label>
+				    <input type="text" class="form-control" id="usr" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
+				  </div>
+				  <div class="form-group text-left">
+				    <label for="passw">Contraseña</label>
+				    <input type="password" class="form-control" id="passw" name="_password" required="required" autocomplete="current-password" />
+				  </div>
+            {% if error %}
+            <div class="col-md-12">
+              <p class="red-error">{{ error.messageKey|trans(error.messageData, 'security') }}</p>
+            </div>
+            {% endif %}
+						<div class="form-group">
+              <p><a href="{{path('fos_user_registration_register')}}">Registrar nuevo usuario</a></p>
+            </div>
+          <button type="submit" class="btn btn-success">Ingresar</button>
+				</form>
+			</div>
+</div> {# /CONTAINER #}

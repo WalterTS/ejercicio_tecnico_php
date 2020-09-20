@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container my-3">
+    <h2>Contacto con el ID: {{contact.id}}</h2>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <td>{{ contact.name }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ contact.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ contact.phone }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ contact.address }}</td>
+            </tr>
+            <tr>
+                <th>Facebook</th>
+                <td>{{ contact.facebook }}</td>
+            </tr>
+            <tr>
+                <th>Instagram</th>
+                <td>{{ contact.instagram }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('contactos_index') }}">Regresar al listado</a>
+        </li>
+        <li>
+            <a href="{{ path('contactos_edit', { 'id': contact.id }) }}">Editar</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input class="btn btn-danger" type="submit" value="Eliminar contacto">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+
+</div>
+{% endblock %}

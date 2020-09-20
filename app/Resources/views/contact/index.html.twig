@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container my-3">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+                <th>Facebook</th>
+                <th>Instagram</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.lastname }}</td>
+                <td>{{ contact.phone }}</td>
+                <td>{{ contact.address }}</td>
+                <td>{{ contact.facebook != "" ? contact.facebook : 'N/A' }}</td>
+                <td>{{ contact.instagram != "" ? contact.instagram : 'N/A' }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('contactos_show', { 'id': contact.id }) }}">Ver</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('contactos_edit', { 'id': contact.id }) }}">Editar</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

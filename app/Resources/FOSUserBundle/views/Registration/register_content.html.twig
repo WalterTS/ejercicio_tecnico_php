@@ -1,0 +1,25 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="container">
+  <h2 class="my-3">Registro de usuario</h2>
+  {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register form'}}) }}
+      <div class="form-group">
+        {{ form_label(form.email, 'Correo') }}
+        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+      </div>
+      <div class="form-group">
+        {{ form_label(form.username, 'Nombre de usuario') }}
+        {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+      </div>
+      <div class="form-group">
+        {{ form_label(form.plainPassword.first, 'Contraseña') }}
+        {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control'}}) }}
+      </div>
+      <div class="form-group">
+        {{ form_label(form.plainPassword.second, 'Confirmar contraseña') }}
+        {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control'}}) }}
+      </div>
+      <div class="form-group">
+          <button class="btn btn-info" type="submit">Registrarse</button>
+      </div>
+  {{ form_end(form) }}
+</div>

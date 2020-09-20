@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}PRUEBA PHP{% endblock %}</title>
+        {% block stylesheets %}
+            {% stylesheets
+                'bundles/app/bootstrap/css/bootstrap.css'
+                'bundles/app/css/style.css'
+            filter='cssrewrite' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% if app.request.attributes.get('_route') != "fos_user_security_login" and app.request.attributes.get('_route') != "fos_user_registration_register" and app.request.attributes.get('_route') != "fos_user_security_logout" %}
+          {% include '@AppBundle/Resources/views/default/header.html.twig' %}
+        {% endif %}
+        <div class="container-fluid">
+          <div class="row">
+            {% block body %}{% endblock %}
+          </div>
+        </div>        
+        {% block javascripts %}
+            {% javascripts
+                '@AppBundle/Resources/public/js/jquery.min.js'
+                '@AppBundle/Resources/public/bootstrap/js/bootstrap.js'
+                '@AppBundle/Resources/public/js/main.js'
+            %}
+            <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
+    </body>
+</html>

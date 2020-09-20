@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+      <h2 class="text-center my-3">Crear nuevo contacto</h2>
+      {{ form_start(form) }}
+        <div class="form-group">
+          {{ form_label(form.name, 'Nombre completo') }}
+          {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+          {{ form_label(form.lastname, 'Apellidos') }}
+          {{ form_widget(form.lastname, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+          {{ form_label(form.phone, 'Teléfono') }}
+          {{ form_widget(form.phone, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+          {{ form_label(form.address, 'Dirección') }}
+          {{ form_widget(form.address, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+          {{ form_label(form.facebook, 'Facebook (opcional)') }}
+          {{ form_widget(form.facebook, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+          {{ form_label(form.instagram, 'Instagram (opcional)') }}
+          {{ form_widget(form.instagram, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success">Crear contacto</button>
+        </div>
+      {{ form_end(form) }}
+
+      <ul>
+          <li>
+              <a href="{{ path('contactos_index') }}">Regresar al listado de contactos</a>
+          </li>
+      </ul>
+  </div>
+{% endblock %}
