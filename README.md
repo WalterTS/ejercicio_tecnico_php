@@ -14,6 +14,16 @@
 6. Para generar las tablas correspondientes, tenemos que ejecutar el comando *php bin/console doctrine:schema:update --force*
 7. El proyecto está instalado y listo para usarse.
 
+
+### Instalar assets, caché, etc.
+Para un correcto uso del demo, es necesario ejecutar los siguientes comandos en consola, en la raíz del proyecto.
+
+1. php bin/console cache:clear --env=prod
+2. php bin/console assets:install --env=prod
+3. php bin/console assetic:dump --env=prod
+4. php bin/console cache:warmup --env=prod
+
+
 ### Ejecutar el proyecto
 
 Existen 3 formas para ejecutar el proyecto:
