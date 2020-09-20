@@ -11,6 +11,7 @@
 	* Creamos una base de datos manualmente donde se ejecutarán los querys, y le indicamos al wizard nuestra base destino.
 	* Generamos una base de datos con el comando *php bin/console doctrine:database:create*
 5. A continuación la consola nos preguntará los datos de conexión para generar el archivo **parameters.yml** (en caso de no haber creado una base de datos previo al composer install, podemos completar la información de conexión manualmente en el archivo **parameters.yml** ubicado en app/config)
+	* Para evitar un posible error con el bundle preinstalado *SwiftMailer* (que para este demo no se usará), es necesario no dejar en blanco las opciones de **mailer_user** y **mailer_password**
 6. Para generar las tablas correspondientes, tenemos que ejecutar el comando *php bin/console doctrine:schema:update --force*
 7. El proyecto está instalado y listo para usarse.
 
